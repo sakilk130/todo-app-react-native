@@ -1,17 +1,25 @@
-import { createHomeStyles } from '@/assets/styles/home.styles';
-import { api } from '@/convex/_generated/api';
-import useTheme from '@/hooks/use-theme';
 import { Ionicons } from '@expo/vector-icons';
-import { useQuery } from 'convex/react';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Header = () => {
+import { createHomeStyles } from '@/assets/styles/home.styles';
+import { Id } from '@/convex/_generated/dataModel';
+import useTheme from '@/hooks/use-theme';
+
+interface HeaderProps {
+  todos: {
+    _id: Id<'todos'>;
+    _creationTime: number;
+    text: string;
+    isCompleted: boolean;
+  }[];
+}
+
+const Header = ({ todos }: HeaderProps) => {
   const { colors } = useTheme();
   const homeStyles = createHomeStyles(colors);
 
-  const todos = useQuery(api.todos.getTodos);
   const completedTodos = todos?.filter((todo) => todo.isCompleted).length || 0;
   const totalTodos = todos?.length || 0;
   const completionRate = totalTodos ? (completedTodos / totalTodos) * 100 : 0;
