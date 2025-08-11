@@ -50,12 +50,14 @@ export default function Index() {
     setEditingId(todo._id);
   };
   const handleDeleteTodo = async (id: Id<'todos'>) => {
-    try {
-      await deleteTodo({ id });
-    } catch (error) {
-      console.log(error);
-      Alert.alert('Error deleting todo');
-    }
+    Alert.alert('Delete Todo', 'Are you sure you want to delete this todo?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: () => deleteTodo({ id }),
+      },
+    ]);
   };
 
   const handleSaveEdit = async () => {
