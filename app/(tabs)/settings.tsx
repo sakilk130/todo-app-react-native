@@ -5,7 +5,7 @@ import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { createSettingsStyles } from '@/assets/styles/settings.styles';
-import { Preferences, ProgressStats } from '@/components';
+import { DangerZone, Preferences, ProgressStats } from '@/components';
 import useTheme from '@/hooks/use-theme';
 
 const SettingsScreen = () => {
@@ -36,6 +36,7 @@ const SettingsScreen = () => {
         >
           <ProgressStats />
           <Preferences />
+          <DangerZone />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
