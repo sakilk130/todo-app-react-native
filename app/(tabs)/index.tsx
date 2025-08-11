@@ -2,7 +2,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView, StatusBar } from 'react-native';
 
 import { createHomeStyles } from '@/assets/styles/home.styles';
-import { Header } from '@/components';
+import { AddTodo, Header } from '@/components';
 import useTheme from '@/hooks/use-theme';
 
 export default function Index() {
@@ -16,6 +16,7 @@ export default function Index() {
       <StatusBar barStyle={colors.statusBarStyle} />
       <SafeAreaView style={styles.safeArea}>
         <Header />
+        <AddTodo />
       </SafeAreaView>
     </LinearGradient>
   );
