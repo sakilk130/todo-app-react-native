@@ -1,7 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { SafeAreaView, StatusBar, Text } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 
 import { createHomeStyles } from '@/assets/styles/home.styles';
+import { Header } from '@/components';
 import useTheme from '@/hooks/use-theme';
 
 export default function Index() {
@@ -14,7 +15,7 @@ export default function Index() {
     >
       <StatusBar barStyle={colors.statusBarStyle} />
       <SafeAreaView style={styles.safeArea}>
-        <Text>Edit app/index.tsx to edit this screen.</Text>
+        <Header />
       </SafeAreaView>
     </LinearGradient>
   );
