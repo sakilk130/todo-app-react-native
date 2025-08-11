@@ -96,7 +96,7 @@ const ThemeContext = React.createContext<ThemeContextType | undefined>(
 );
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
     AsyncStorage.getItem('darkMode').then((value) => {
